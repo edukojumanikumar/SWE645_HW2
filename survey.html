@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Survey</title>
+    
+    <!-- Internal CSS Styles for Layout and Design -->
+    <style>
+        /* Header styling: Flexbox for alignment and background gradient */
+        header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #00b336, #007bff);
+            border-bottom: 2px solid #003d79;
+            width: 100%;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        /* Footer styling: Gradient background and text styling */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #00b336, #007bff);
+            color: white;
+        }
+
+        /* Footer text styling */
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        /* Logo image size and margin in the header */
+        header img {
+            height: 60px;
+            margin-right: 20px;
+        }
+
+        /* Global body settings: font family, margins, and background color */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+        }
+
+        /* Main content container with layout settings like width, margin, padding, and box shadow */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Main heading (Survey Title) styles: text alignment, font size, gradient color */
+        h1 {
+            text-align: center;
+            color: #000000;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #007bff, #00b336);
+            -webkit-background-clip: text;
+            color: transparent;
+            border-bottom: 3px solid #00b336;
+            padding-bottom: 10px;
+        }
+
+        /* Label styling for form fields */
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        /* Input field styling: width, padding, margin, border, and font size */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* Checkbox and radio button alignment with labels */
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        /* Labels for checkboxes/radio buttons in line with fields */
+        label {
+            display: inline-block;
+            margin-top: 0;
+        }
+
+        /* Spacing for form groups (each input section) */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Paragraph styling inside form group */
+        .form-group p {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Button container for alignment and spacing */
+        .buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Submit and reset button styles */
+        .buttons input[type="submit"],
+        .buttons input[type="reset"] {
+            padding: 10px 30px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        .buttons input[type="submit"]:hover,
+        .buttons input[type="reset"]:hover {
+            background-color: #009eb3;
+        }
+
+        /* Resizing for textareas */
+        textarea {
+            resize: vertical;
+        }
+
+        /* Responsive design: Adjustments for smaller screen widths */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            input[type="submit"],
+            input[type="reset"] {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main container for survey content -->
+    <div class="container">
+        <h1>Student Survey</h1>
+
+        <!-- Survey form starts here, sending data via POST method -->
+        <form action="submit-survey.php" method="post">
+            <!-- Personal Information Fields -->
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+
+            <!-- Repeat for last name, address, city, state, zip, phone, email, and date fields -->
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Street Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" required>
+            </div>
+            <div class="form-group">
+                <label for="zip">Zip Code:</label>
+                <input type="text" id="zip" name="zip" required>
+            </div>
+            <div class="form-group">
+                <label for="telephone">Telephone Number:</label>
+                <input type="tel" id="telephone" name="telephone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date of Survey:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <!-- Checkbox options for campus preferences -->
+            <div class="form-group">
+                <p>What did you like most about the campus?</p>
+                <input type="checkbox" id="students" name="likedCampus[]" value="students">
+                <label for="students">Students</label><br>
+                <input type="checkbox" id="location" name="likedCampus[]" value="location">
+                <label for="location">Location</label><br>
+                <input type="checkbox" id="campus" name="likedCampus[]" value="campus">
+                <label for="campus">Campus</label><br>
+                <input type="checkbox" id="atmosphere" name="likedCampus[]" value="atmosphere">
+                <label for="atmosphere">Atmosphere</label><br>
+                <input type="checkbox" id="dorms" name="likedCampus[]" value="dorms">
+                <label for="dorms">Dorm Rooms</label><br>
+                <input type="checkbox" id="sports" name="likedCampus[]" value="sports">
+                <label for="sports">Sports</label>
+            </div>
+
+            <!-- Radio button options for interest source -->
+            <div class="form-group">
+                <p>How did you become interested in the university?</p>
+                <input type="radio" id="friends" name="interest" value="friends">
+                <label for="friends">Friends</label><br>
+                <input type="radio" id="television" name="interest" value="television">
+                <label for="television">Television</label><br>
+                <input type="radio" id="internet" name="interest" value="internet">
+                <label for="internet">Internet</label><br>
+                <input type="radio" id="other" name="interest" value="other">
+                <label for="other">Other</label>
+            </div>
+
+            <!-- Dropdown for likelihood of recommending the school -->
+            <div class="form-group">
+                <label for="recommend">Will you recommend this university to a friend?</label>
+                <select id="recommend" name="recommend" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <!-- Textarea for additional comments -->
+            <div class="form-group">
+                <label for="comments">Any comments?</label>
+                <textarea id="comments" name="comments" rows="4"></textarea>
+            </div>
+
+            <!-- Button container with submit and reset actions -->
+            <div class="buttons">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer section with closing text -->
+    <footer>
+        <p>&copy; 2024 George Mason University</p>
+    </footer>
+
+</body>
+
+</html>
